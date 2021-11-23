@@ -18,18 +18,25 @@ function App() {
     localStorage.setItem(LSKEY, JSON.stringify(todo))
   }, [todo])
 
+  function deleteTodo(id) {
+    const newTodo = [...todo]
+    const todos = newTodo.find(todos => todos.id === id)
+    todos.complete = !todos.complete
+    setTodo(newTodo)
+  }
+
   return (
     <>
     <header>
-      <h1>TodoList</h1>
+      <h1>To-do list</h1>
       <br/>
-      <Form setTodo={setTodo} />
+      <Form todo={todo} setTodo={setTodo} deleteTodo={deleteTodo}/>
     </header>
     <hr/>
     <main>
       <h2>Todo :</h2>
       <ul>
-        <TodoList todo={todo} />
+        <TodoList todo={todo} deleteTodo={deleteTodo}/>
       </ul>
     </main>
     </>

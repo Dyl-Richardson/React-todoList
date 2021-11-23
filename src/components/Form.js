@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import uuidv4 from 'uuid/dist/v4'
 
-export default function Form({setTodo}) {
+export default function Form({setTodo, todo}) {
     const inputRef = useRef();
 
     function addTodo() {
@@ -16,7 +16,8 @@ export default function Form({setTodo}) {
     }
 
     function removeTodo() {
-      
+      const newTodos = todo.filter(todos => !todos.complete)
+      setTodo(newTodos)
     }
 
     return (
