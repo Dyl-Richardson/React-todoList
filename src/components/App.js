@@ -1,7 +1,7 @@
-import './css/App.css';
+import '../css/App.css';
 import React, { useState, useEffect } from 'react';
-import Form from './components/Form';
-import TodoList from './components/TodoList';
+import Form from './Form';
+import TodoList from './TodoList';
 
 const LSKEY = "MyTodoApp";
 
